@@ -31,12 +31,16 @@ module.exports = function(request, response, next) {
     var payload = {};
     payload['username'] = 'Lunchbot';
     payload['channel'] = 'C03J74386';
-    payload['icon_emoji'] = ':stew:';
+    payload['icon_emoji'] = ':fork_and_knife:';
 
-    var text = '\n*Cafe Rathaus*\n';
+    var text = '\n:stew: *Cafe Rathaus*\n';
     u.each(extracted, function(item) {
       text += item + '\n';
     });
+    // Add Billa option :D
+    text += '\n:billa: *Billa*\n';
+    text += 'For your Leberkäse needs';
+
     payload['text'] = text;
 
     // Send message
