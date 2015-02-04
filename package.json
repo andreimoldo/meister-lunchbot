@@ -2,10 +2,6 @@
   "name": "meisterlunch",
   "version": "0.0.1",
   "description": "Lunch menu parser for Slack",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Andrei Moldovan <andrei@meisterlabs.com>",
   "license": "ISC",
   "dependencies": {
