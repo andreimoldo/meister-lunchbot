@@ -9,7 +9,12 @@
   "author": "Andrei Moldovan <andrei@meisterlabs.com>",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.x.x",
     "express": "^4.x.x",
-    "body-parser": "^1.x.x"
+    "fs": "",
+    "cheerio": "",
+    "moment": "",
+    "request": "",
+    "underscore": ""
   }
 }
