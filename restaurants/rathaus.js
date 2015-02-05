@@ -16,7 +16,12 @@ module.exports = {
 
           var $menus = $(day).find('tr');
           $menus.each(function(j, item) {
-              foods.push($(item).text().trim().replace(/\s{2,}/g, ' '));
+              foods.push(
+                  $(item).text()
+                         .trim()
+                         .replace(/\s{2,}/g, ' ')
+                         .replace(/\s(\w\W)+€/, ' €')
+              );
           });
 
           data[i] = foods.join('\n');
