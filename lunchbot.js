@@ -81,6 +81,10 @@ module.exports = function(slack_req, slack_res) {
     }
 
     function postToSlack(todaysMenus) {
+        if (global.testing) {
+            return console.log(getTodaysMenus());
+        }
+
         var payload = {};
         payload['username'] = 'Lunchbot';
         payload['channel'] = 'C03J74386';

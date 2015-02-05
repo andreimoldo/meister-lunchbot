@@ -15,13 +15,13 @@ Create a new file in `/restaurants` with either of the 2 following contents. Aft
         parse: function($) {
         }
     };
-   
+
 The `parse` method should return something in the following format, the keynames should be weekdays starting from 0.
 
 	{
 		'0': 'Some Title\nsome other stuff'
 	}
-	
+
 ###Joke Restaurants
 
 	module.exports = {
@@ -30,6 +30,8 @@ The `parse` method should return something in the following format, the keynames
     	message: 'For your Leberkäse needs'
 	};
 
+##Testing
 
+Just run `node test` and you will see the result that would get posted to Slack.
 
 *Props to Dr.Drei :D*
