@@ -14,7 +14,7 @@ module.exports = {
                     foods.push(
                         $(item).text()
                                .trim()
-                               .replace(/-\s[A-Z]+$/, '')
+                            //    .replace(/-\s[A-Z]+$/, '')
                                .replace(/\n(\d),/, '€ $1')
                                .capitalizeWords()
                     );

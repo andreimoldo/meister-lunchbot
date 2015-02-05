@@ -15,7 +15,7 @@ module.exports = {
           foods.push(
               $soup.trim()
                    .replace(/\s{2,}/g, ' ')
-                   .replace(/\s(\w\W\w)/, '')
+                //    .replace(/\s(\w\W\w)/, '')
                    .capitalizeWords()
           );
 
@@ -25,7 +25,7 @@ module.exports = {
                   $(item).text()
                          .trim()
                          .replace(/\s{2,}/g, ' ')
-                         .replace(/\s(\w\W)+€/, ' €')
+                        //  .replace(/\s(\w\W)+€/, ' €')
                          .capitalizeWords()
               );
           });
