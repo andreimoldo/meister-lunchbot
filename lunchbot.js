@@ -21,7 +21,7 @@ module.exports = function(slack_req, slack_res) {
     var i = 0;
 
     // Send cache file for current week if it exists
-    if (fs.existsSync(cacheFile)) {
+    if (fs.existsSync(cacheFile) && !global.testing) {
         var cachedData = JSON.parse(fs.readFileSync(cacheFile));
         if (_.keys(cachedData).length !== restaurants.length) {
             // A new restaurant has been added, reparse
