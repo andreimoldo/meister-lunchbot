@@ -114,3 +114,15 @@ global.String.prototype.capitalizeWords = function() {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }).join(' ');
 }
+
+global.String.prototype.removeAllergyWarnings = function() {
+    return this.split(' ').map(function(str) {
+        return str.split(',').filter(function(str1) {
+            if (str1.length === 1 && /[A-Z]/.test(str1)) {
+                return false;
+            } else {
+                return true;
+            }
+        }).join(',');
+    }).join(' ').replace(/\s\s+?/, ' ');
+}
