@@ -46,7 +46,7 @@ module.exports = function(slack_req, slack_res) {
                 return doneParsingRestaurant();
             }
 
-            request({uri: restaurant.uri}, function(err, res, body) {
+            request({uri: restaurant.uri, headers: {'User-Agent': 'Chrome'}}, function(err, res, body) {
                 if (err) return console.log('Error when trying to load ' + restaurant.name, err);
                 result[restaurant.name] = restaurant.parse(cheerio.load(body));
                 doneParsingRestaurant();
