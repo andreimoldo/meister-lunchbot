@@ -110,7 +110,10 @@ module.exports = function(slack_req, slack_res) {
 
 
 global.String.prototype.capitalizeWords = function() {
-    return this.split(' ').map(function(str) {
+    var splitted = this.split(' ');
+    return splitted.map(function(str, i) {
+        // capitalise word if its between two other words and up to 3 chars long
+        if (i !== 0 && i !== splitted.length-1 && str.length < 4) return str;
         return str.charAt(0).toUpperCase() + str.slice(1);
     }).join(' ');
 }
