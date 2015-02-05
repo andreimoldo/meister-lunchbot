@@ -7,6 +7,7 @@ var fs = require('fs');
 
 var restaurants = [
     'rathaus',
+    'cantinetta',
     'billa'
 ]
 .map(function(name) {
@@ -80,7 +81,7 @@ module.exports = function(slack_req, slack_res) {
         // TODO delete previous cache if existing
     }
 
-    function postToSlack(todaysMenus) {
+    function postToSlack() {
         if (global.testing) {
             return console.log(getTodaysMenus());
         }
@@ -104,4 +105,4 @@ module.exports = function(slack_req, slack_res) {
             slack_res.status(200).end();
         });
     }
-}
+};
