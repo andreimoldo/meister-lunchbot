@@ -1,13 +1,5 @@
-#Description
+#Meisterlunch
 
-Slack bot that parses the Cafe Rathaus web page and prints the lunch menu for the day.
+Slack bot that parses different restaurants around our offices and posts them to Slack.
 
-#Dependencies
-
-* body-parser
-* cheerio
-* express
-* fs
-* moment
-* request
-* underscore
+*Props to Dr.Drei :D*
