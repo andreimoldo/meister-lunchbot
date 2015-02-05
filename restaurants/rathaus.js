@@ -12,7 +12,12 @@ module.exports = {
               return this.type == 'text';
           }).text();
 
-          foods.push($soup.trim().replace(/\s{2,}/g, ' '));
+          foods.push(
+              $soup.trim()
+                   .replace(/\s{2,}/g, ' ')
+                   .replace(/\s(\w\W\w)/, '')
+                   .capitalizeWords()
+          );
 
           var $menus = $(day).find('tr');
           $menus.each(function(j, item) {
@@ -21,6 +26,7 @@ module.exports = {
                          .trim()
                          .replace(/\s{2,}/g, ' ')
                          .replace(/\s(\w\W)+€/, ' €')
+                         .capitalizeWords()
               );
           });
 
