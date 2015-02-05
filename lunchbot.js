@@ -107,3 +107,10 @@ module.exports = function(slack_req, slack_res) {
         });
     }
 };
+
+
+global.String.prototype.capitalizeWords = function() {
+    return this.split(' ').map(function(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }).join(' ');
+}

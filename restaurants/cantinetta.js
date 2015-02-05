@@ -11,10 +11,17 @@ module.exports = {
             var $menus = $(day).find('div');
             $menus.each(function(j, item) {
                 if ($(item).hasClass('day') == false) {
-                    foods.push($(item).text().trim());
+                    foods.push(
+                        $(item).text()
+                               .trim()
+                               .replace(/-\s[A-Z]+$/, '')
+                               .replace(/\n(\d),/, '€ $1')
+                               .capitalizeWords()
+                    );
                 }
             });
-            data[i] = foods.join('\n');
+            var price = foods.pop();
+            data[i] = foods.join('\n').trim() + ' € ' + parseInt(price).toFixed(2).replace('.', ',');
         });
 
         return data;
