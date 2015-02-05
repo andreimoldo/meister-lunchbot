@@ -8,6 +8,7 @@ var fs = require('fs');
 var restaurants = [
     'rathaus',
     'cantinetta',
+    'michls',
     'ohh',
     'billa'
 ]
