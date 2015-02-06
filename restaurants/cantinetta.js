@@ -15,13 +15,15 @@ module.exports = {
                         $(item).text()
                                .trim()
                                .replace(/\n(\d),/, '€ $1')
-                               .removeAllergyWarnings()
-                               .capitalizeWords()
                     );
                 }
             });
             var price = foods.pop();
-            data[i] = foods.join('\n').trim() + ' € ' + parseInt(price).toFixed(2).replace('.', ',');
+            data[i] = (
+                foods.join('\n').trim() +
+                ' € ' +
+                parseInt(price).toFixed(2).replace('.', ',')
+            ).reFormat();
         });
 
         return data;

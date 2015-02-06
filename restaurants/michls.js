@@ -22,11 +22,11 @@ module.exports = {
                     });
 
                     daily += text.join(' ')
-                        .replace(/\s{2,}/g, ' ');
+                        .replace(/\s{2,}/g, ' ')
                 });
                 dailies.push(daily);
             });
-            data[i] = dailies.join('\n');
+            data[i] = dailies.join('\n').reFormat();
         });
 
         return data;

@@ -15,8 +15,6 @@ module.exports = {
           foods.push(
               $soup.trim()
                    .replace(/\s{2,}/g, ' ')
-                   .removeAllergyWarnings()
-                   .capitalizeWords()
           );
 
           var $menus = $(day).find('tr');
@@ -25,12 +23,10 @@ module.exports = {
                   $(item).text()
                          .trim()
                          .replace(/\s{2,}/g, ' ')
-                         .removeAllergyWarnings()
-                         .capitalizeWords()
               );
           });
 
-          data[i] = foods.join('\n');
+          data[i] = foods.join('\n').reFormat();
         });
 
         return data;

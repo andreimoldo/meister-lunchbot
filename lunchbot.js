@@ -110,23 +110,36 @@ module.exports = function(slack_req, slack_res) {
 };
 
 
-global.String.prototype.capitalizeWords = function() {
-    var splitted = this.split(' ');
-    return splitted.map(function(str, i) {
-        // capitalise word if its between two other words and up to 3 chars long
-        if (i !== 0 && i !== splitted.length-1 && str.length < 4) return str;
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    }).join(' ');
-}
 
-global.String.prototype.removeAllergyWarnings = function() {
-    return this.split(' ').map(function(str) {
-        return str.split(',').filter(function(str1) {
-            if (str1.length === 1 && /[A-Z]/.test(str1)) {
-                return false;
-            } else {
-                return true;
-            }
-        }).join(',');
-    }).join(' ').replace(/\s\s+?/, ' ');
+global.String.prototype.reFormat = function() {
+    var result = this;
+
+    result = result.split(/\n/g).map(function(str) {
+        // Capitalises words
+        var splitted = str.split(' ');
+        str = splitted.map(function(str, i) {
+            // capitalise word if its between two other words and up to 3 chars long
+            if (i !== 0 && i !== splitted.length-1 && str.length < 4) return str;
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }).join(' ');
+
+        //removes allergy warnings
+        return str.split(' ').map(function(str1) {
+            return str1.split(',').filter(function(str2) {
+                if (str2.length === 1 && /[A-Z]/.test(str2)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }).join(',');
+        }).join(' ');
+    }).join('\n');
+
+    // double spaces
+    result = result.replace(/  /g, ' ');
+
+    //string:string to string: string
+    result = result.replace(/(\w)\:(\w)/g, '$1: $2');
+
+    return result;
 }
