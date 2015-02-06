@@ -4,6 +4,10 @@
   "description": "Lunch menu parser for Slack",
   "author": "Andrei Moldovan <andrei@meisterlabs.com>",
   "license": "ISC",
+  "repository": {
+      "type": "git",
+      "url": "git://github.com/andreimoldo/meister-lunchbot.git"
+  },
   "engines": {
       "node": "0.10.x"
   },
