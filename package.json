@@ -4,6 +4,9 @@
   "description": "Lunch menu parser for Slack",
   "author": "Andrei Moldovan <andrei@meisterlabs.com>",
   "license": "ISC",
+  "engines": {
+      "node": "0.10.x"
+  },
   "dependencies": {
     "body-parser": "^1.x.x",
     "express": "^4.x.x",
