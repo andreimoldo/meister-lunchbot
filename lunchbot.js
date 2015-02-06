@@ -20,7 +20,9 @@ var restaurants = [
 module.exports = function(slack_req, slack_res) {
     var result = {};
     var weekNumber = moment().isoWeek();
+    var prevWeekNumber = moment().week(weekNumber - 1).isoWeek();
     var cacheFile = './cache/' + weekNumber + '.json';
+    var prevCacheFile = './cache/' + prevWeekNumber + '.json';
     var i = 0;
 
     // Send cache file for current week if it exists
@@ -80,7 +82,9 @@ module.exports = function(slack_req, slack_res) {
     function saveCache() {
         if (!fs.existsSync('./cache/')) fs.mkdirSync('./cache/');
         fs.writeFileSync(cacheFile, JSON.stringify(result), 'utf8');
-        // TODO delete previous cache if existing
+        fs.exists(prevCacheFile, function(exists) {
+            if (exists) fs.unlink(prevCacheFile);
+        });
     }
 
     function postToSlack() {
