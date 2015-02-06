@@ -94,7 +94,7 @@ module.exports = function(slack_req, slack_res) {
         payload['icon_emoji'] = ':fork_and_knife:';
         payload['text'] = getTodaysMenus();
 
-        var outgoing = 'https://hooks.slack.com/services/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';
+        var outgoing = 'https://hooks.slack.com/services' + process.env.INCOMING_WEBHOOK_PATH;
 
         request({
             uri: outgoing,
