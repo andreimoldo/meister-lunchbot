@@ -90,7 +90,8 @@ module.exports = function(slack_req, slack_res) {
 
         var payload = {};
         payload['username'] = 'Lunchbot';
-        payload['channel'] = 'C03J74386';
+//        payload['channel'] = 'C03J74386';
+        payload['channel'] = slack_req.body.channel_id;
         payload['icon_emoji'] = ':fork_and_knife:';
         payload['text'] = getTodaysMenus();
 
