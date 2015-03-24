@@ -1,3 +1,4 @@
+// Docs
 module.exports = {
     name: 'Cafe Rathaus',
     emoji: ':stew:',
