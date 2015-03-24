@@ -1,4 +1,3 @@
-// Test comment
 module.exports = {
     name: 'Cafe Rathaus',
     emoji: ':stew:',
