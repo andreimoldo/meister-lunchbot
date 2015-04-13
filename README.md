@@ -37,4 +37,6 @@ These restaurants don't have a URI or parse method. Instead, they just get added
 
 Just run `node test` and you will see the result that would get posted to Slack.
 
+##Credits
+
 *Props to Ostermonn! :D*
